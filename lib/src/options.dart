@@ -107,6 +107,9 @@ class AndroidUiSettings {
   /// set to true to hide the bottom controls (shown by default)
   final bool? hideBottomControls;
 
+  /// maxBitmapSize - see https://github.com/Yalantis/uCrop/issues/384
+  final int? maxBitmapSize;
+
   /// desired aspect ratio is applied (from the list of given aspect ratio presets)
   /// when starting the cropper
   final CropAspectRatioPreset? initAspectRatio;
@@ -128,7 +131,8 @@ class AndroidUiSettings {
       this.showCropGrid,
       this.lockAspectRatio,
       this.hideBottomControls,
-      this.initAspectRatio});
+      this.initAspectRatio,
+      this.maxBitmapSize});
 
   Map<String, dynamic> toMap() => {
         'android.toolbar_title': this.toolbarTitle,
@@ -150,6 +154,7 @@ class AndroidUiSettings {
         'android.hide_bottom_controls': this.hideBottomControls,
         'android.init_aspect_ratio':
             aspectRatioPresetName(this.initAspectRatio),
+        'android.max_bitmap_size': this.maxBitmapSize
       };
 }
 
